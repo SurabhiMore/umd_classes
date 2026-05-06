@@ -1,5 +1,5 @@
 """
-Run each notebook in class_project/project_template/ inside Docker using docker_cmd.sh.
+Run notebooks in this project inside Docker using docker_cmd.sh.
 
 Import as:
 
@@ -93,7 +93,7 @@ class Test_docker_bash(hunitest.TestCase):
 
 class Test_docker_run_notebooks(hunitest.TestCase):
     """
-    Run each notebook in class_project/project_template/ via docker_cmd.sh.
+    Run notebooks in this project via docker_cmd.sh.
     """
 
     def _helper(self, notebook_name: str) -> None:
@@ -102,7 +102,7 @@ class Test_docker_run_notebooks(hunitest.TestCase):
         successfully.
 
         :param notebook_name: name of the notebook file relative to the
-            class_project/project_template/ directory (e.g., template.example.ipynb)
+            project directory (e.g., llamaindex.example.ipynb)
         """
         # Prepare inputs.
         test_dir = os.path.dirname(os.path.abspath(__file__))
@@ -113,19 +113,19 @@ class Test_docker_run_notebooks(hunitest.TestCase):
     @pytest.mark.slow
     def test1(self) -> None:
         """
-        Test that template.example.ipynb runs without error inside Docker.
+        Test that llamaindex.example.ipynb runs without error inside Docker.
         """
         # Prepare inputs.
-        notebook_name = "template.example.ipynb"
+        notebook_name = "llamaindex.example.ipynb"
         # Run test.
         self._helper(notebook_name)
 
     @pytest.mark.slow
     def test2(self) -> None:
         """
-        Test that template.API.ipynb runs without error inside Docker.
+        Test that llamaindex.API.ipynb runs without error inside Docker.
         """
         # Prepare inputs.
-        notebook_name = "template.API.ipynb"
+        notebook_name = "llamaindex.API.ipynb"
         # Run test.
         self._helper(notebook_name)
