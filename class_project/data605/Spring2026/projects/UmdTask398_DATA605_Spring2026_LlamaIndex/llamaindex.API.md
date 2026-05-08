@@ -38,7 +38,7 @@ graph LR
     B -->|Node Parsers| C(Nodes)
     C -->|Embedding Model| D[(Vector Index)]
     D -->|Retriever| E(Query Engine)
-    E -->|LLM (Ollama)| F[Answer]
+    E -->|LLM Ollama| F[Answer]
 ```
 
 ## Setup and prerequisites
