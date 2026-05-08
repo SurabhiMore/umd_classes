@@ -6,8 +6,14 @@
 
 # Auto-reload local modules (e.g., llamaindex_utils.py) on every cell execution
 # Useful during development, no kernel restart needed after editing helper files
-get_ipython().run_line_magic('load_ext', 'autoreload')
-get_ipython().run_line_magic('autoreload', '2')
+try:
+    from IPython import get_ipython  # type: ignore
+    ip = get_ipython()
+    if ip is not None:
+        ip.run_line_magic("load_ext", "autoreload")
+        ip.run_line_magic("autoreload", "2")
+except Exception:
+    pass
 
 
 # # LlamaIndex API Tutorial

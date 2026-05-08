@@ -40,7 +40,7 @@ Before diving in, here are the four core LlamaIndex building blocks you will enc
 
 ## Prerequisites
 
-### 1. Install Ollama (Local LLM — Required)
+### 1. Install Ollama (Local LLM - Required)
 
 This project uses **Ollama** to run the LLM fully locally, in compliance with the project guideline that prohibits cloud resources. The code inside Docker connects to Ollama running on your host machine via `host.docker.internal`.
 

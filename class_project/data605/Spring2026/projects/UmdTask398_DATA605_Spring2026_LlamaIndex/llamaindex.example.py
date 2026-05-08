@@ -540,8 +540,13 @@ prompt = (
 
 print(f"User Prompt: {prompt}\n")
 
-# In scripts, run async agent calls via asyncio.
-response = asyncio.run(agent.run(prompt))
+# The llama_index workflow runtime calls asyncio.get_running_loop() internally,
+# which only works when executed inside a live coroutine. We wrap the call in
+# an async function so asyncio.run() provides a running loop for the workflow.
+async def _run_agent(_agent, _prompt):
+    return await _agent.run(_prompt)
+
+response = asyncio.run(_run_agent(agent, prompt))
 print(f"\nFinal Synthesized Answer: {response}")
 
 
